@@ -6,7 +6,6 @@ export class Coracao {
     ) { }
 
     public exibeCoracao(): string {
-        // tslint:disable-next-line:whitespace
         if(this.cheio) {
             return this.urlCoracaoCheio;
         } else {

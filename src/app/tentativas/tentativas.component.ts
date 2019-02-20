@@ -9,7 +9,6 @@ import { Coracao } from '../shared/coracao.model';
 })
 export class TentativasComponent implements OnInit, OnChanges {
 
-  // tslint:disable-next-line:no-inferrable-types
   @Input() public tentativas: number;
 
   public coracoes: Coracao[] = [
@@ -23,10 +22,8 @@ export class TentativasComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    // tslint:disable-next-line:whitespace
     if(this.tentativas !== this.coracoes.length) {
-      // tslint:disable-next-line:prefer-const
-      let indice = this.coracoes.length - this.tentativas - 1;
+      const indice = this.coracoes.length - this.tentativas - 1;
       this.coracoes[indice].cheio = false;
     }
   }

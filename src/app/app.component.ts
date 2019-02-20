@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  // tslint:disable-next-line:no-inferrable-types
   public jogoEmAndamento: boolean = true;
   public tipoEncerramento: string;
 

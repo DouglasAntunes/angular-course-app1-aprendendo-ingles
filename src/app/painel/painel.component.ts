@@ -10,19 +10,16 @@ import { FRASES } from './frases-mock';
 })
 export class PainelComponent implements OnInit, OnDestroy {
   public frases: Frase[] = FRASES;
-  // tslint:disable-next-line:no-inferrable-types
+
   public instrucao: string = 'Traduza a frase:';
-  // tslint:disable-next-line:no-inferrable-types
+
   public resposta: string = '';
 
-  // tslint:disable-next-line:no-inferrable-types
   public rodada: number = 0;
   public rodadaFrase: Frase;
 
-  // tslint:disable-next-line:no-inferrable-types
   public progresso: number = 0;
 
-  // tslint:disable-next-line:no-inferrable-types
   public tentativas: number = 3;
 
   @Output() public encerrarJogo: EventEmitter<string> = new EventEmitter;
@@ -43,7 +40,6 @@ export class PainelComponent implements OnInit, OnDestroy {
   }
 
   public verificarResposta(): void {
-    // tslint:disable-next-line:whitespace
     if(this.resposta === this.rodadaFrase.frasePtBr) {
       // acertou
       // alert('Acertou');
@@ -52,7 +48,6 @@ export class PainelComponent implements OnInit, OnDestroy {
       // progresso
       this.progresso += (100 / this.frases.length);
 
-      // tslint:disable-next-line:whitespace
       if(this.rodada === 4) {
         this.encerrarJogo.emit('vitoria');
       }
@@ -60,7 +55,6 @@ export class PainelComponent implements OnInit, OnDestroy {
     } else {
       // diminuir a variavel tentativas
       this.tentativas--;
-      // tslint:disable-next-line:whitespace
       if(this.tentativas === -1) {
         this.encerrarJogo.emit('derrota');
       }
