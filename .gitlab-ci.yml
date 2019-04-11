@@ -1,0 +1,21 @@
+image: gitlab.home.local:4567/ci-images/angular-core:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages: 
+  - build
+
+buildProd:
+  stage: build
+  only:
+    - tags
+  script:
+    - npm update
+    - ng build --prod --aot=true --build-optimizer=true --optimization
+    - mv dist/app1/ app1/
+  artifacts:
+    expire_in: 2 days
+    paths:
+      - app1/
